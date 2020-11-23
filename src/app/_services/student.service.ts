@@ -19,7 +19,7 @@ export class StudentService {
 
     private _state: State = {
         page: 1,
-        pageSize: 2,
+        pageSize: 5,
         searchTerm: '',
         sortColumn: '',
         sortDirection: ''

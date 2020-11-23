@@ -30,7 +30,7 @@ var StudentService = /** @class */ (function () {
         this._total$ = new rxjs_1.BehaviorSubject(0);
         this._state = {
             page: 1,
-            pageSize: 2,
+            pageSize: 5,
             searchTerm: '',
             sortColumn: '',
             sortDirection: ''
