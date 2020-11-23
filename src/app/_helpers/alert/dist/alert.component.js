@@ -21,7 +21,7 @@ var AlertComponent = /** @class */ (function () {
         });
         this.subscription = this.alertService.getAlert$()
             .pipe(operators_1.debounceTime(5000))
-            .subscribe(function () { return _this.message = null; });
+            .subscribe(function () { _this.message = null; });
     };
     AlertComponent.prototype.ngOnDestroy = function () {
         this.subscription.unsubscribe();

@@ -25,7 +25,7 @@ var ErrorInterceptor = /** @class */ (function () {
                 case 0:
                     return rxjs_1.throwError('There was an error, please contact support.');
                 default:
-                    return rxjs_1.throwError(err.error);
+                    return rxjs_1.throwError(err);
             }
         }));
     };

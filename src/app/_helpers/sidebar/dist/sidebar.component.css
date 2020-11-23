@@ -1,0 +1,84 @@
+.sidebar {
+  background: #fff;
+  position: fixed;
+  height: 100vh;
+  min-width: 580px;
+  max-width: 75%;
+  top: 0;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+  right: -100%;
+  transition: right 0.25s ease;
+  z-index: 40000;
+}
+.sidebar__header {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 72px;
+  box-shadow: 0 2px 2px 0 rgba(117, 117, 117, 0.1);
+  padding: 10px 20px;
+}
+.sidebar__header h3 {
+  font-size: 18px;
+}
+.sidebar__header .close {
+  background: none;
+  outline: none;
+  border: none;
+  margin-left: auto;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 0.8;
+  opacity: 0.5;
+}
+.sidebar__header .close:hover {
+  opacity: 1;
+}
+.sidebar__header .close:hover fa-icon {
+  color: #000;
+}
+.sidebar__body {
+  padding: 30px 20px;
+  background: inherit;
+  overflow-y: auto;
+  height: 100%;
+}
+.sidebar__spacer {
+  padding: 0;
+  margin: 0;
+  -webkit-box-flex: 1 !important;
+  -ms-flex-positive: 1 !important;
+  flex-grow: 1 !important;
+  background: transparent;
+}
+.sidebar__footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.sidebar__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(74, 95, 129, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .sidebar {
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .sidebar {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,5 @@
+.ng-invalid {
+    &.ng-touched, &.ng-dirty, &.submitted{
+        border-color: #dc3545;
+    }
+}

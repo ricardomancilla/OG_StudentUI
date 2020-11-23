@@ -10,6 +10,4 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 exports.__esModule = true;
-__exportStar(require("./alert.service"), exports);
-__exportStar(require("./student.service"), exports);
-__exportStar(require("./sidebar.service"), exports);
+__exportStar(require("./Student"), exports);

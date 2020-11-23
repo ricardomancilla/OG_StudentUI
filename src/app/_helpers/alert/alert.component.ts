@@ -21,7 +21,7 @@ export class AlertComponent implements OnInit, OnDestroy {
             .pipe(
                 debounceTime(5000)
             )
-            .subscribe(() => this.message = null);
+            .subscribe(() => { this.message = null });
     }
 
     ngOnDestroy() {

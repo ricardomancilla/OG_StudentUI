@@ -1,0 +1,38 @@
+<div class="centered-form">
+    <form [formGroup]="studentForm" (ngSubmit)="submitted=true; onSubmit();">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="First Name"
+                    [ngClass]="{ submitted: submitted }" formControlName="firstName" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name"
+                    [ngClass]="{ submitted: submitted }" formControlName="lastName" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="userName">Username</label>
+                <input type="text" class="form-control" id="userName" placeholder="Username"
+                    [ngClass]="{ submitted: submitted }" formControlName="userName" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="age">Age</label>
+                <input type="number" class="form-control" id="age" placeholder="Age" pattern="\d*" integerOnly
+                    [ngClass]="{ submitted: submitted }" formControlName="age" ngbTooltip="Min age is 5" [disableTooltip]="!f.age.errors?.min" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="career">Career</label>
+                <input type="text" class="form-control" id="career" placeholder="Career"
+                    [ngClass]="{ submitted: submitted }" formControlName="career" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Save</button>
+        <button type="button" class="btn btn-secondary"
+            (click)="this.sidebarService.close(this.sidebarId)">Cancel</button>
+    </form>
+</div>

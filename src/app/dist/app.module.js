@@ -16,6 +16,11 @@ var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/common/http");
 var _helpers_1 = require("./_helpers");
+var students_component_1 = require("./students/students.component");
+var common_1 = require("@angular/common");
+var angular_fontawesome_1 = require("@fortawesome/angular-fontawesome");
+var students_cu_component_1 = require("./students/students-cud/students-cu.component");
+var sidebar_component_1 = require("./_helpers/sidebar/sidebar.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -24,7 +29,12 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 app_component_1.AppComponent,
                 _helpers_1.ConfirmationModalComponent,
-                _helpers_1.AlertComponent
+                _helpers_1.AlertComponent,
+                students_component_1.StudentsComponent,
+                students_cu_component_1.StudentsCuComponent,
+                sidebar_component_1.SidebarComponent,
+                _helpers_1.NgbdSortableHeader,
+                _helpers_1.IntegerOnlyInput,
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -33,6 +43,7 @@ var AppModule = /** @class */ (function () {
                 forms_1.FormsModule,
                 forms_1.ReactiveFormsModule,
                 http_1.HttpClientModule,
+                angular_fontawesome_1.FontAwesomeModule,
                 ngx_toastr_1.ToastrModule.forRoot({
                     closeButton: true,
                     timeOut: 5000,
@@ -41,6 +52,7 @@ var AppModule = /** @class */ (function () {
                 })
             ],
             providers: [
+                common_1.DecimalPipe,
                 { provide: http_1.HTTP_INTERCEPTORS, useClass: _helpers_1.ErrorInterceptor, multi: true },
             ],
             bootstrap: [app_component_1.AppComponent]

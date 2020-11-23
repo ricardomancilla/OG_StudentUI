@@ -1,0 +1,77 @@
+<div class="container mt-3">
+  <h1>Students</h1>
+  <div class="row mt-4">
+    <form class="col-12">
+      <div class="form-group form-inline">
+        Full text search: <input class="form-control ml-2 col-4" type="text" name="searchTerm"
+          [(ngModel)]="studentService.searchTerm" />
+        <span class="ml-3" *ngIf="studentService.loading$ | async">Loading...</span>
+        <button class="btn btn-primary ml-auto" ngbTooltip="New student"
+          (click)="this.openSidebar('new-student-cu', null)">
+          <fa-icon [icon]="faPlus"></fa-icon> Add student
+        </button>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" sortable="userName" (sort)="onSort($event)">Username</th>
+            <th scope="col" sortable="firstName" (sort)="onSort($event)">FirstName</th>
+            <th scope="col" sortable="lastName" (sort)="onSort($event)">LastName</th>
+            <th scope="col" sortable="age" (sort)="onSort($event)">Age</th>
+            <th scope="col" sortable="career" (sort)="onSort($event)">Career</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students$ | async">
+            <td>
+              <ngb-highlight [result]="student.userName" [term]="studentService.searchTerm"></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight [result]="student.firstName" [term]="studentService.searchTerm"></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight [result]="student.lastName" [term]="studentService.searchTerm"></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight [result]="student.age | number" [term]="studentService.searchTerm"></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight [result]="student.career" [term]="studentService.searchTerm"></ngb-highlight>
+            </td>
+            <td>
+              <button class="btn options" ngbTooltip="Edit" (click)="this.openSidebar('edit-student-cu', student.id)">
+                <fa-icon [icon]="faEdit"></fa-icon>
+              </button>
+              <button class="btn options" ngbTooltip="Delete" (click)="this.deleteStudent(student)">
+                <fa-icon [icon]="faTrash"></fa-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="studentService.page"
+          [pageSize]="studentService.pageSize">
+        </ngb-pagination>
+
+        <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="studentService.pageSize">
+          <option [ngValue]="2">2 items per page</option>
+          <option [ngValue]="5">5 items per page</option>
+          <option [ngValue]="10">10 items per page</option>
+          <option [ngValue]="20">20 items per page</option>
+        </select>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-sidebar id="edit-student-cu" [title]="'Edit Student'">
+  <app-students-cu [sidebarId]="this.currentSidebarId" [studentId]="this.currentStudentId"></app-students-cu>
+</app-sidebar>
+
+<app-sidebar id="new-student-cu" [title]="'New Student'">
+  <app-students-cu [sidebarId]="this.currentSidebarId"></app-students-cu>
+</app-sidebar>

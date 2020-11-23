@@ -20,7 +20,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                         case 0:
                             return throwError('There was an error, please contact support.');
                         default:
-                            return throwError(err.error);
+                            return throwError(err);
                     }
                 }))
     }

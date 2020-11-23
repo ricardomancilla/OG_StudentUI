@@ -7,13 +7,23 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AlertComponent, ConfirmationModalComponent, ErrorInterceptor } from './_helpers';
+import { AlertComponent, ConfirmationModalComponent, ErrorInterceptor, IntegerOnlyInput, NgbdSortableHeader } from './_helpers';
+import { StudentsComponent } from './students/students.component';
+import { DecimalPipe } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StudentsCuComponent } from './students/students-cud/students-cu.component';
+import { SidebarComponent } from './_helpers/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfirmationModalComponent,
-    AlertComponent
+    AlertComponent,
+    StudentsComponent,
+    StudentsCuComponent,
+    SidebarComponent,
+    NgbdSortableHeader,
+    IntegerOnlyInput,
   ],
   imports: [
     BrowserModule,
@@ -22,6 +32,7 @@ import { AlertComponent, ConfirmationModalComponent, ErrorInterceptor } from './
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FontAwesomeModule,
     ToastrModule.forRoot({
       closeButton: true,
       timeOut: 5000,
@@ -30,6 +41,7 @@ import { AlertComponent, ConfirmationModalComponent, ErrorInterceptor } from './
     })
   ],
   providers: [
+    DecimalPipe,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
