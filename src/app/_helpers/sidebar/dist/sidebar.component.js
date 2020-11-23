@@ -8,12 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.SidebarComponent = void 0;
 var core_1 = require("@angular/core");
-var free_solid_svg_icons_1 = require("@fortawesome/free-solid-svg-icons");
 var SidebarComponent = /** @class */ (function () {
     function SidebarComponent(sidebarService, el) {
         this.sidebarService = sidebarService;
         this.el = el;
-        this.faTimes = free_solid_svg_icons_1.faTimes;
         this.defaultWidth = 580;
         this.title = '';
         this.element = el.nativeElement;

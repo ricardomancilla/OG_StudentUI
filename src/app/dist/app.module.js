@@ -9,7 +9,6 @@ exports.__esModule = true;
 exports.AppModule = void 0;
 var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
-var ngx_toastr_1 = require("ngx-toastr");
 var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
@@ -43,13 +42,7 @@ var AppModule = /** @class */ (function () {
                 forms_1.FormsModule,
                 forms_1.ReactiveFormsModule,
                 http_1.HttpClientModule,
-                angular_fontawesome_1.FontAwesomeModule,
-                ngx_toastr_1.ToastrModule.forRoot({
-                    closeButton: true,
-                    timeOut: 5000,
-                    preventDuplicates: false,
-                    positionClass: 'toast-top-right'
-                })
+                angular_fontawesome_1.FontAwesomeModule
             ],
             providers: [
                 common_1.DecimalPipe,

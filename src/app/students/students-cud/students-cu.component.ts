@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Student } from '@app/_models';
@@ -135,6 +134,12 @@ export class StudentsCuComponent implements OnInit {
       }, error => {
         this.alertService.error(error.message);
       });
+  }
+
+  close() {
+    this.submitted = false;
+    this.initStudentForm();
+    this.sidebarService.close(this.sidebarId)
   }
 
 }

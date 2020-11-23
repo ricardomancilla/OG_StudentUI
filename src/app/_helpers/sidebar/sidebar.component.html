@@ -1,9 +1,6 @@
 <div class="sidebar" [style.width.px]="this.defaultWidth">
     <div class="sidebar__header">
         <h2>{{ title }}</h2>
-        <button class="close" (click)="this.close()">
-            <fa-icon [icon]="this.faTimes"></fa-icon>
-        </button>
     </div>
     <div class="sidebar__body">
         <ng-content></ng-content>

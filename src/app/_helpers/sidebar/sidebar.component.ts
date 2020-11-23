@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, Input } from '@angular/core';
 import { SidebarService } from '@app/_services';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,8 +7,6 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit, OnDestroy {
-
-  faTimes = faTimes;
 
   public defaultWidth = 580;
 

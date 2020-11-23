@@ -127,6 +127,11 @@ var StudentsCuComponent = /** @class */ (function () {
             _this.alertService.error(error.message);
         });
     };
+    StudentsCuComponent.prototype.close = function () {
+        this.submitted = false;
+        this.initStudentForm();
+        this.sidebarService.close(this.sidebarId);
+    };
     __decorate([
         core_1.Input()
     ], StudentsCuComponent.prototype, "sidebarId");
