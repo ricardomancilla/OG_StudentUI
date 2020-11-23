@@ -55,7 +55,7 @@ export class StudentsCuComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.setStudentForm();
+    this.initStudentForm();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -75,7 +75,7 @@ export class StudentsCuComponent implements OnInit {
     return this.studentService._getStudent(studentId);
   }
 
-  setStudentForm() {
+  initStudentForm() {
     this.studentForm = this.fb.group({
       userName: ['', Validators.required],
       firstName: ['', Validators.required],
@@ -117,6 +117,8 @@ export class StudentsCuComponent implements OnInit {
         this.alertService.success('Student created.', true);
         this.sidebarService.close(this.sidebarId);
         this.studentService._refreshData();
+        this.submitted = false;
+        this.initStudentForm();
       }, error => {
         this.alertService.error(error.message);
       });
@@ -128,6 +130,8 @@ export class StudentsCuComponent implements OnInit {
         this.alertService.success('Student updated.', true);
         this.sidebarService.close(this.sidebarId);
         this.studentService._refreshData();
+        this.submitted = false;
+        this.initStudentForm();
       }, error => {
         this.alertService.error(error.message);
       });

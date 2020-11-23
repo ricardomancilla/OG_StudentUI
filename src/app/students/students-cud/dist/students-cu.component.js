@@ -53,7 +53,7 @@ var StudentsCuComponent = /** @class */ (function () {
         configurable: true
     });
     StudentsCuComponent.prototype.ngOnInit = function () {
-        this.setStudentForm();
+        this.initStudentForm();
     };
     StudentsCuComponent.prototype.ngOnChanges = function (changes) {
         this.submitted = false;
@@ -69,7 +69,7 @@ var StudentsCuComponent = /** @class */ (function () {
             return rxjs_1.of(null);
         return this.studentService._getStudent(studentId);
     };
-    StudentsCuComponent.prototype.setStudentForm = function () {
+    StudentsCuComponent.prototype.initStudentForm = function () {
         this.studentForm = this.fb.group({
             userName: ['', forms_1.Validators.required],
             firstName: ['', forms_1.Validators.required],
@@ -108,6 +108,8 @@ var StudentsCuComponent = /** @class */ (function () {
             _this.alertService.success('Student created.', true);
             _this.sidebarService.close(_this.sidebarId);
             _this.studentService._refreshData();
+            _this.submitted = false;
+            _this.initStudentForm();
         }, function (error) {
             _this.alertService.error(error.message);
         });
@@ -119,6 +121,8 @@ var StudentsCuComponent = /** @class */ (function () {
             _this.alertService.success('Student updated.', true);
             _this.sidebarService.close(_this.sidebarId);
             _this.studentService._refreshData();
+            _this.submitted = false;
+            _this.initStudentForm();
         }, function (error) {
             _this.alertService.error(error.message);
         });
